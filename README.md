@@ -42,6 +42,13 @@ If you’re using RootTheBox, please ★Star this repository to show your intere
 
 See the [Root the Box Wiki](https://github.com/moloch--/RootTheBox/wiki)
 
+### PostgreSQL Support
+
+Root the Box can run using a PostgreSQL database. Install the optional
+`psycopg2-binary` dependency and set the SQL dialect to `postgres` in your
+configuration file or via environment variables. A sample docker-compose
+configuration using PostgreSQL is provided.
+
 ## Platform Requirements
 
 -   [Python 3](https://www.python.org/), [PyPy](http://pypy.org/) or [Docker](https://github.com/moloch--/RootTheBox/wiki/Docker-Deployment).
