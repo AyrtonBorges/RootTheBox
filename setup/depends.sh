@@ -77,6 +77,7 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
     apt-get install sqlite3 libsqlite3-dev $SKIP
   else
     apt-get install default-mysql-server default-libmysqlclient-dev $SKIP
+    apt-get install postgresql postgresql-contrib libpq-dev $SKIP
   fi
 
 elif [[ "${OSTYPE}" == "darwin14" ]]; then
@@ -95,6 +96,7 @@ elif [[ "${OSTYPE}" == "darwin14" ]]; then
 
   echo "Brew install package..."
   brew install python mysql memcached zlib
+  brew install postgresql
 
 fi	
 
