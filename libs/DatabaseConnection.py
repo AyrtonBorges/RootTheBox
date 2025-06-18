@@ -90,6 +90,10 @@ class DatabaseConnection(object):
                 import pypostgresql  # noqa: F401
                 driver = "postgresql+pypostgresql"
             except ImportError:
+                logging.error(
+                    "Missing Postgres driver. Install 'psycopg2-binary' or 'pypostgresql'."
+                )
+                driver = "postgresql"
                 print(
                     WARN
                     + "You must install 'psycopg2-binary' or 'pypostgresql' to use Postgres"
@@ -105,11 +109,11 @@ class DatabaseConnection(object):
             db_name,
         )
 
-        if self._test_connection(postgres):
-            return postgres
+        # Test connection but do not abort if it fails
+        self._test_connection(postgres)
 
-        logging.fatal("Cannot connect to database with any available driver")
-        os._exit(1)
+        return postgres
+
 
     def _sqlite(self):
         """

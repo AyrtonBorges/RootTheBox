@@ -1192,6 +1192,9 @@ if __name__ == "__main__":
             logging.info("Running Docker Setup")
             if os.path.isfile(options.config):
                 options.parse_config_file(options.config)
+                # Environment variables should override existing config
+                options_parse_environment()
+
             if options.sql_dialect == "sqlite":
                 options.sql_database = "files/rootthebox.db"
             options.admin_ips = []  # Remove admin ips due to docker 127.0.0.1 mapping
