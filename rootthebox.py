@@ -37,11 +37,35 @@ from libs.ConfigHelpers import save_config, save_config_image
 from libs.ConsoleColors import *
 from libs.StringCoding import set_type
 from setup import __version__
+from libs.DatabaseConnection import DatabaseConnection
+from sqlalchemy import create_engine, inspect
 
 
 def current_time():
     """Nicely formatted current time as a string"""
     return str(datetime.now()).split(" ")[1].split(".")[0]
+
+
+def is_db_initialized():
+    """Check if the configured database already contains the schema."""
+    db_connection = DatabaseConnection(
+        database=options.sql_database,
+        hostname=options.sql_host,
+        port=options.sql_port,
+        username=options.sql_user,
+        password=options.sql_password,
+        dialect=options.sql_dialect,
+        ssl_ca=options.sql_sslca,
+    )
+    engine = create_engine(str(db_connection))
+    try:
+        inspector = inspect(engine)
+        return inspector.has_table("theme")
+    except Exception as error:
+        logging.error("Database initialization check failed: %s" % error)
+        return False
+    finally:
+        engine.dispose()
 
 
 def start():
@@ -1162,6 +1186,8 @@ if __name__ == "__main__":
             options.sql_dialect == "sqlite"
             and not os.path.isfile(options.sql_database)
             and not os.path.isfile("%s.db" % options.sql_database)
+        ) or (
+            options.sql_dialect != "sqlite" and not is_db_initialized()
         ):
             logging.info("Running Docker Setup")
             if os.path.isfile(options.config):
