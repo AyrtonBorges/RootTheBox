@@ -94,11 +94,6 @@ class DatabaseConnection(object):
                     "Missing Postgres driver. Install 'psycopg2-binary' or 'pypostgresql'."
                 )
                 driver = "postgresql"
-                print(
-                    WARN
-                    + "You must install 'psycopg2-binary' or 'pypostgresql' to use Postgres"
-                )
-                os._exit(1)
 
         db_host, db_name, db_user, db_password = self._db_credentials()
         postgres = "%s://%s:%s@%s/%s" % (
@@ -113,7 +108,6 @@ class DatabaseConnection(object):
         self._test_connection(postgres)
 
         return postgres
-
 
     def _sqlite(self):
         """
