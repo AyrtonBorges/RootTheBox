@@ -1,0 +1,9 @@
+# Dockerfile corrigido
+FROM n8nio/n8n:latest
+
+USER root
+# Atualiza índices e instala o Docker CLI via apk (Alpine)
+RUN apk update \
+ && apk add --no-cache docker
+
+USER node

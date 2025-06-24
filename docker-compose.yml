@@ -32,5 +32,30 @@ services:
       - SQL_DATABASE=rootthebox
       - SQL_USER=rtb
       - SQL_PASSWORD=rtb
+
+  docker-dind:
+    image: docker:24-dind
+    privileged: true
+    command: ["--host=tcp://0.0.0.0:2375"]
+    environment:
+      - DOCKER_TLS_CERTDIR=   # desativa TLS dentro do DinD
+    volumes:
+      - docker-data:/var/lib/docker
+
+  n8n:
+    build: ./n8n/
+    depends_on:
+      - docker-dind
+    user: root
+    ports:
+      - "5678:5678"
+    volumes:
+      - "~/.n8n:/home/node/.n8n"
+    environment:
+      - EXECUTIONS_PROCESS=main
+      - DOCKER_HOST=tcp://docker-dind:2375
+      - N8N_DOCKER_EXEC_BIN=/usr/bin/docker
+  
 volumes:
   postgres-data:
+  docker-data:
