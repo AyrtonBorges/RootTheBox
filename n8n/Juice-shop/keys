@@ -1,0 +1,344 @@
+-
+  name: 'API-only XSS'
+  key: restfulXssChallenge
+  
+-
+  name: 'Access Log'
+  key: accessLogDisclosureChallenge
+-
+  name: 'Admin Registration'
+  key: registerAdminChallenge
+-
+  name: 'Admin Section'
+  key: adminSectionChallenge
+-
+  name: 'Arbitrary File Write'
+  key: fileWriteChallenge
+  
+-
+  name: 'Bjoern''s Favorite Pet'
+  key: resetPasswordBjoernOwaspChallenge
+-
+  name: 'Blockchain Hype'
+  key: tokenSaleChallenge
+-
+  name: 'NFT Takeover'
+  key: nftUnlockChallenge
+-
+  name: 'Mint the Honey Pot'
+  key: nftMintChallenge
+-
+  name: 'Wallet Depletion'
+  key: web3WalletChallenge
+-
+  name: 'Web3 Sandbox'
+  key: web3SandboxChallenge
+-
+  name: 'Blocked RCE DoS'
+  key: rceChallenge
+  
+-
+  name: 'CAPTCHA Bypass'
+  key: captchaBypassChallenge
+-
+  name: 'Change Bender''s Password'
+  key: changePasswordBenderChallenge
+-
+  name: 'Christmas Special'
+  key: christmasSpecialChallenge
+-
+  name: 'CSP Bypass'
+  key: usernameXssChallenge
+  
+-
+  name: 'Client-side XSS Protection'
+  key: persistedXssUserChallenge
+  
+-
+  name: 'Confidential Document'
+  key: directoryListingChallenge
+-
+  name: 'DOM XSS'
+  key: localXssChallenge
+-
+  name: 'Database Schema'
+  key: dbSchemaChallenge
+-
+  name: 'Deprecated Interface'
+  key: deprecatedInterfaceChallenge
+-
+  name: 'Easter Egg'
+  key: easterEggLevelOneChallenge
+-
+  name: 'Email Leak'
+  key: emailLeakChallenge
+-
+  name: 'Empty User Registration'
+  key: emptyUserRegistration
+-
+  name: 'Ephemeral Accountant'
+  key: ephemeralAccountantChallenge
+-
+  name: 'Error Handling'
+  key: errorHandlingChallenge
+-
+  name: 'Expired Coupon'
+  key: manipulateClockChallenge
+-
+  name: 'Extra Language'
+  key: extraLanguageChallenge
+-
+  name: 'Five-Star Feedback'
+  key: feedbackChallenge
+-
+  name: 'Forged Coupon'
+  key: forgedCouponChallenge
+-
+  name: 'Forged Feedback'
+  key: forgedFeedbackChallenge
+-
+  name: 'Forged Review'
+  key: forgedReviewChallenge
+-
+  name: 'Forged Signed JWT'
+  key: jwtForgedChallenge
+-
+  name: 'Forgotten Developer Backup'
+  key: forgottenDevBackupChallenge
+-
+  name: 'Forgotten Sales Backup'
+  key: forgottenBackupChallenge
+-
+  name: 'Frontend Typosquatting'
+  key: typosquattingAngularChallenge
+-
+  name: 'GDPR Data Erasure'
+  key: ghostLoginChallenge
+-
+  name: 'GDPR Data Theft'
+  key: dataExportChallenge
+-
+  name: 'HTTP-Header XSS'
+  key: httpHeaderXssChallenge
+  
+-
+  name: 'Imaginary Challenge'
+  key: continueCodeChallenge
+-
+  name: 'Leaked Access Logs'
+  key: dlpPasswordSprayingChallenge
+-
+  name: 'Leaked Unsafe Product'
+  key: dlpPastebinDataLeakChallenge
+-
+  name: 'Legacy Typosquatting'
+  key: typosquattingNpmChallenge
+-
+  name: 'Login Admin'
+  key: loginAdminChallenge
+-
+  name: 'Login Amy'
+  key: loginAmyChallenge
+-
+  name: 'Login Bender'
+  key: loginBenderChallenge
+-
+  name: 'Login Bjoern'
+  key: oauthUserPasswordChallenge
+-
+  name: 'Login Jim'
+  key: loginJimChallenge
+-
+  name: 'Login MC SafeSearch'
+  key: loginRapperChallenge
+-
+  name: 'Login Support Team'
+  key: loginSupportChallenge
+-
+  name: 'Manipulate Basket'
+  key: basketManipulateChallenge
+-
+  name: 'Misplaced Signature File'
+  key: misplacedSignatureFileChallenge
+-
+  name: 'Multiple Likes'
+  key: timingAttackChallenge
+-
+  name: 'Nested Easter Egg'
+  key: easterEggLevelTwoChallenge
+-
+  name: 'NoSQL DoS'
+  key: noSqlCommandChallenge
+  
+-
+  name: 'NoSQL Exfiltration'
+  key: noSqlOrdersChallenge
+  
+-
+  name: 'NoSQL Manipulation'
+  key: noSqlReviewsChallenge
+-
+  name: 'Outdated Allowlist'
+  key: redirectCryptoCurrencyChallenge
+-
+  name: 'Password Strength'
+  key: weakPasswordChallenge
+-
+  name: 'Payback Time'
+  key: negativeOrderChallenge
+-
+  name: 'Premium Paywall'
+  key: premiumPaywallChallenge
+-
+  name: 'Privacy Policy'
+  key: privacyPolicyChallenge
+-
+  name: 'Privacy Policy Inspection'
+  key: privacyPolicyProofChallenge
+-
+  name: 'Product Tampering'
+  key: changeProductChallenge
+-
+  name: 'Reflected XSS'
+  key: reflectedXssChallenge
+  
+-
+  name: 'Repetitive Registration'
+  key: passwordRepeatChallenge
+-
+  name: 'Reset Bender''s Password'
+  key: resetPasswordBenderChallenge
+-
+  name: 'Reset Bjoern''s Password'
+  key: resetPasswordBjoernChallenge
+-
+  name: 'Reset Jim''s Password'
+  key: resetPasswordJimChallenge
+-
+  name: 'Reset Morty''s Password'
+  key: resetPasswordMortyChallenge
+-
+  name: 'Retrieve Blueprint'
+  key: retrieveBlueprintChallenge
+-
+  name: 'SSRF'
+  key: ssrfChallenge
+-
+  name: 'SSTi'
+  key: sstiChallenge
+  
+-
+  name: 'Score Board'
+  key: scoreBoardChallenge
+-
+  name: 'Security Policy'
+  key: securityPolicyChallenge
+-
+  name: 'Server-side XSS Protection'
+  key: persistedXssFeedbackChallenge
+  
+-
+  name: 'Steganography'
+  key: hiddenImageChallenge
+-
+  name: 'Successful RCE DoS'
+  key: rceOccupyChallenge
+  
+-
+  name: 'Supply Chain Attack'
+  key: supplyChainAttackChallenge
+-
+  name: 'Two Factor Authentication'
+  key: twoFactorAuthUnsafeSecretStorageChallenge
+-
+  name: 'Unsigned JWT'
+  key: jwtUnsignedChallenge
+-
+  name: 'Upload Size'
+  key: uploadSizeChallenge
+-
+  name: 'Upload Type'
+  key: uploadTypeChallenge
+-
+  name: 'User Credentials'
+  key: unionSqlInjectionChallenge
+-
+  name: 'Video XSS'
+  key: videoXssChallenge
+  
+-
+  name: 'View Basket'
+  key: basketAccessChallenge
+-
+  name: 'Vulnerable Library'
+  key: knownVulnerableComponentChallenge
+-
+  name: 'Weird Crypto'
+  key: weirdCryptoChallenge
+-
+  name: 'Allowlist Bypass'
+  key: redirectChallenge
+-
+  name: 'XXE Data Access'
+  key: xxeFileDisclosureChallenge
+  
+-
+  name: 'XXE DoS'
+  key: xxeDosChallenge
+  
+-
+  name: 'Memory Bomb'
+  key: yamlBombChallenge
+  
+-
+  name: 'Zero Stars'
+  key: zeroStarsChallenge
+-
+  name: 'Missing Encoding'
+  key: missingEncodingChallenge
+-
+  name: 'Cross-Site Imaging'
+  key: svgInjectionChallenge
+-
+  name: 'Exposed Metrics'
+  key: exposedMetricsChallenge
+-
+  name: 'Deluxe Fraud'
+  key: freeDeluxeChallenge
+-
+  name: 'CSRF' # FIXME No e2e test automation! No longer works in Chrome >=80 and Firefox >=100 or other latest browsers!
+  key: csrfChallenge
+-
+  name: 'Bonus Payload'
+  key: xssBonusChallenge
+-
+  name: 'Reset Uvogin''s Password'
+  key: resetPasswordUvoginChallenge
+-
+  name: 'Meta Geo Stalking'
+  key: geoStalkingMetaChallenge
+-
+  name: 'Visual Geo Stalking'
+  key: geoStalkingVisualChallenge
+-
+  name: 'Kill Chatbot'
+  key: killChatbotChallenge
+-
+  name: 'Poison Null Byte'
+  key: nullByteChallenge
+-
+  name: 'Bully Chatbot'
+  key: bullyChatbotChallenge
+-
+  name: 'Local File Read'
+  key: 'lfrChallenge'
+  
+-
+  name: 'Mass Dispel'
+  key: closeNotificationsChallenge
+-
+  name: 'Security Advisory'
+  key: csafChallenge
+-
+  name: 'Exposed credentials'
+  key: exposedCredentialsChallenge

@@ -1,0 +1,38 @@
+# disable-scoreboard.yml
+
+server:
+  # Porta onde o servidor vai escutar (pode ser sobrescrita pela variável de ambiente PORT)
+  port: 3000
+  # Caminho base para redirecionamentos (útil se você fizer proxy em um subdiretório)
+  basePath: ''
+
+application:
+  # Domínio usado para endereços de e-mail dos usuários
+  domain: 'juice-sh.op'
+  # Nome exibido no título e na barra de menu
+  name: 'OWASP Juice Shop'
+  # Logo (arquivo em frontend/dist/frontend/assets/public/images ou URL)
+  logo: 'JuiceShop_Logo.png'
+  # Favicon (arquivo .ico em frontend/dist/frontend/assets/public ou URL)
+  favicon: 'favicon_v2.ico'
+  # Tema de cores (veja as opções em Material Color Themes)
+  theme: 'bluegrey-lightgreen'
+  # Mostra ou oculta o número da versão no título
+  showVersionNumber: true
+  # Mostra ou oculta o botão GitHub e o link "Contribute" no Score Board
+  showGitHubLinks: true
+  # Habilita/desabilita o backup local de progresso e filtros no Score Board
+  localBackupEnabled: true
+  # Número de usuários falsos aleatórios adicionados além dos pré-definidos
+  numberOfRandomFakeUsers: 0
+  # Nome da "moeda" fake usada na tela de Token Sale
+  altcoinName: 'Juicycoin'
+  # E-mail de contato exibido na Política de Privacidade
+  privacyContactEmail: 'donotreply@owasp-juice.shop'
+  # Prefixo para métricas customizadas no Prometheus
+  customMetricsPrefix: 'juiceshop'
+
+# Seção customizada para desabilitar completamente o Score Board
+scoreBoard:
+  # Quando false, a rota e o link para o Score Board são removidos da interface
+  enabled: false

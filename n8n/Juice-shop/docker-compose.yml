@@ -1,0 +1,29 @@
+version: "3.7"
+
+services:
+  docker-dind:
+    image: docker:24-dind
+    privileged: true
+    command: ["--host=tcp://0.0.0.0:2375"]
+    environment:
+      - DOCKER_TLS_CERTDIR=   # desativa TLS dentro do DinD
+    volumes:
+      - docker-data:/var/lib/docker
+
+  n8n:
+    build: .
+    image: my-n8n-with-docker
+    depends_on:
+      - docker-dind
+    user: root
+    ports:
+      - "5678:5678"
+    volumes:
+      - "C:/Users/Ayrton/.n8n:/home/node/.n8n"
+    environment:
+      - EXECUTIONS_PROCESS=main
+      - DOCKER_HOST=tcp://docker-dind:2375
+      - N8N_DOCKER_EXEC_BIN=/usr/bin/docker
+
+volumes:
+  docker-data:

@@ -41,6 +41,9 @@ services:
       - DOCKER_TLS_CERTDIR=   # desativa TLS dentro do DinD
     volumes:
       - docker-data:/var/lib/docker
+    ports:
+      - "2375:2375"  # Expose Docker API on port 2375
+      - "3000:3000"
 
   n8n:
     build: ./n8n/
@@ -55,6 +58,7 @@ services:
       - EXECUTIONS_PROCESS=main
       - DOCKER_HOST=tcp://docker-dind:2375
       - N8N_DOCKER_EXEC_BIN=/usr/bin/docker
+      - N8N_SECURE_COOKIE=false
   
 volumes:
   postgres-data:

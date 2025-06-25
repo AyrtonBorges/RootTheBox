@@ -1,0 +1,41 @@
+docker run -d \
+  -e "NODE_ENV=disable-scoreboard" \
+  -v "${PWD}/disable-scoreboard.yml:/juice-shop/config/disable-scoreboard.yml:ro" \
+  -v "${PWD}/challanges.yml:/juice-shop/data/static/challenges.yml:ro" \
+  -p 3000:3000 \
+  --name juice-shop \
+  bkimminich/juice-shop
+
+
+C:\Users\Ayrton\Documents\GitHub\juice-shop2\frontend\src\app\score-board\score-board.component.ts
+
+docker run -d \
+  -v "${PWD}/disable-scoreboard.yml:/juice-shop/config/disable-scoreboard.yml:ro" \
+  -v "${PWD}/challanges.yml:/juice-shop/data/static/challenges.yml:ro" \
+  -v "${PWD}/frontend/src/app/app.routing.ts:/juice-shop/frontend/src/app/app.routing.ts:ro" \
+  -p 3000:3000 \
+  --name juice-shop \
+  bkimminich/juice-shop
+
+
+  C:\Users\Ayrton\Documents\GitHub\juice-shop2\frontend\src\app\app.routing.ts
+
+
+  docker run -e "NODE_ENV=disable-scoreboard" -d -v C:\Users\Ayrton\Documents\GitHub\juice-shop2\disable-scoreboard.yml:/juice-shop/config/disable-scoreboard.yml:ro -v C:\Users\Ayrton\Documents\GitHub\juice-shop2\challanges.yml:/juice-shop/data/static/challenges.yml:ro -v C:\Users\Ayrton\Documents\GitHub\juice-shop2\frontend\src\app\app.routing.ts:/juice-shop/frontend/src/app/app.routing.ts:ro -p 3000:3000 --name juice-shop bkimminich/juice-shop
+
+  docker run -d `
+  --name juice-shop `
+  --network n8n-juice-net `
+  -e "NODE_ENV=disable-scoreboard" `
+  -v "C:\Users\Ayrton\Documents\GitHub\juice-shop2\disable-scoreboard.yml:/juice-shop/config/disable-scoreboard.yml:ro" `
+  -v "C:\Users\Ayrton\Documents\GitHub\juice-shop2\challanges.yml:/juice-shop/data/static/challenges.yml:ro" `
+  -v "C:\Users\Ayrton\Documents\GitHub\juice-shop2\frontend\src\app\app.routing.ts:/juice-shop/frontend/src/app/app.routing.ts:ro" `
+  -p 3000:3000 `
+  bkimminich/juice-shop
+
+  docker run -d -it --rm `
+  --name n8n `
+  --network n8n-juice-net `
+  -p 5678:5678 `
+  -v n8n_data:/home/node/.n8n `
+  docker.n8n.io/n8nio/n8n
