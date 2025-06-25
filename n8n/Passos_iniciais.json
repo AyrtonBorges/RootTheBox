@@ -1,0 +1,77 @@
+{
+  "name": "Passos iniciais",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "68fba69b-08da-485d-84d2-8d00113a7f64",
+      "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {
+        "command": "git clone https://github.com/AyrtonBorges/juice-shop.git\n"
+      },
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [
+        220,
+        0
+      ],
+      "id": "ce768518-736e-4cfd-856e-418b92af78ef",
+      "name": "Execute Command"
+    },
+    {
+      "parameters": {
+        "command": "cd juice-shop\n\ndocker build -t juice-shop-local .\n"
+      },
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [
+        440,
+        0
+      ],
+      "id": "9c2dd245-2a1f-4f16-85a8-07a069841de6",
+      "name": "Execute Command1"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "Execute Command",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Execute Command": {
+      "main": [
+        [
+          {
+            "node": "Execute Command1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "4ddcc140-276a-4f24-bbd9-d99a81b1857c",
+  "meta": {
+    "instanceId": "d2a1ef702ae4087d9b2a21c1aadab22590d10105ccc31b6859b7a5f2eb661960"
+  },
+  "id": "9fPTWFZ5N1DeHR4Y",
+  "tags": []
+}

@@ -1,0 +1,233 @@
+{
+  "name": "Juice-shop",
+  "nodes": [
+    {
+      "parameters": {
+        "path": "d013a219-cbf3-421d-8c8f-cfd671cf8fff",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        -100,
+        -20
+      ],
+      "id": "1fcd7432-eead-4b12-bb5f-3824c8cf4fda",
+      "name": "Webhook",
+      "webhookId": "d013a219-cbf3-421d-8c8f-cfd671cf8fff"
+    },
+    {
+      "parameters": {
+        "respondWith": "text",
+        "responseBody": "={{ $json.html }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.4,
+      "position": [
+        660,
+        -20
+      ],
+      "id": "f8999c8d-49db-4de6-8865-e1fcfb195107",
+      "name": "Respond to Webhook"
+    },
+    {
+      "parameters": {
+        "html": "<!DOCTYPE html>\n<html lang=\"pt-BR\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"/>\n  <title>Login</title>\n  <style>\n    body {\n      display: flex;\n      height: 100vh;\n      margin: 0;\n      font-family: Arial, sans-serif;\n      background: #f0f0f0;\n      justify-content: center;\n      align-items: center;\n    }\n    .login-box {\n      background: #fff;\n      padding: 2rem;\n      border-radius: 8px;\n      box-shadow: 0 2px 8px rgba(0,0,0,0.1);\n      width: 300px;\n    }\n    .login-box h2 {\n      margin-top: 0;\n      text-align: center;\n    }\n    .login-box label {\n      display: block;\n      font-size: 0.9rem;\n      margin: 1rem 0 0.5rem;\n    }\n    .login-box input[type=\"text\"],\n    .login-box input[type=\"email\"] {\n      width: 100%;\n      padding: 0.5rem;\n      border: 1px solid #ccc;\n      border-radius: 4px;\n      box-sizing: border-box;\n    }\n    .login-box button {\n      margin-top: 1.5rem;\n      width: 100%;\n      padding: 0.6rem;\n      border: none;\n      border-radius: 4px;\n      background: #007bff;\n      color: #fff;\n      font-size: 1rem;\n      cursor: pointer;\n    }\n    .login-box button:hover {\n      background: #0056b3;\n    }\n  </style>\n</head>\n<body>\n  <div class=\"login-box\">\n    <h2>Entrar</h2>\n    <form action=\"/webhook-test/d013a219-cbf3-421d-8c8f-cfd671cf8fff/login\" method=\"post\">\n      <label for=\"username\">Usuário</label>\n      <input type=\"text\" id=\"username\" name=\"username\" placeholder=\"Seu usuário\" required />\n\n      <label for=\"email\">Email</label>\n      <input type=\"email\" id=\"email\" name=\"email\" placeholder=\"Sua email\" required />\n\n      <button type=\"submit\">Login</button>\n    </form>\n  </div>\n</body>\n</html>\n"
+      },
+      "type": "n8n-nodes-base.html",
+      "typeVersion": 1.2,
+      "position": [
+        380,
+        -20
+      ],
+      "id": "a0adebb1-dfd8-4006-96a2-2610917c15f2",
+      "name": "HTML"
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "d013a219-cbf3-421d-8c8f-cfd671cf8fff/login",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        -100,
+        320
+      ],
+      "id": "daaa06b3-ee8a-45bd-a452-ed8fce08433a",
+      "name": "Webhook1",
+      "webhookId": "d013a219-cbf3-421d-8c8f-cfd671cf8fff"
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "schema": {
+          "__rl": true,
+          "mode": "list",
+          "value": "public"
+        },
+        "table": {
+          "__rl": true,
+          "value": "user",
+          "mode": "list",
+          "cachedResultName": "user"
+        },
+        "where": {
+          "values": [
+            {
+              "column": "_handle",
+              "value": "={{ $json.body.username }}"
+            },
+            {
+              "column": "_email",
+              "value": "={{ $json.body.email }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        280,
+        320
+      ],
+      "id": "efd0e164-18d5-4772-a7f9-05ae47971b49",
+      "name": "Postgres",
+      "alwaysOutputData": true,
+      "credentials": {
+        "postgres": {
+          "id": "Q0TZQF0kQez6t4zs",
+          "name": "Postgres account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "58fdc8b4-0705-4411-9025-14cc58f763a7",
+              "leftValue": "={{ $json._email }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "exists",
+                "singleValue": true
+              }
+            },
+            {
+              "id": "71196abe-eb9f-428f-a022-da501cd878de",
+              "leftValue": "={{ $json._handle }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "exists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        580,
+        320
+      ],
+      "id": "73c56b12-8902-4346-977e-52817ec0ceb9",
+      "name": "If"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.html",
+      "typeVersion": 1.2,
+      "position": [
+        900,
+        220
+      ],
+      "id": "bd030a8d-4a4c-489d-833d-5a5c94ca5a92",
+      "name": "HTML1"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "HTML",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTML": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook1": {
+      "main": [
+        [
+          {
+            "node": "Postgres",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Postgres": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "HTML1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "7ae93329-0511-4c8a-b3db-5b6d1f8f7f17",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "d2a1ef702ae4087d9b2a21c1aadab22590d10105ccc31b6859b7a5f2eb661960"
+  },
+  "id": "3EvaH72ViK1PGa6V",
+  "tags": []
+}
